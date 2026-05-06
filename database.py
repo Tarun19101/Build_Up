@@ -12,10 +12,25 @@ def create_tables():
             id INT PRIMARY KEY,
             name TEXT,
             dob DATE,
-            level INT,
-            xp INT,
-            req_xp INT)
+            doj DATE DEFUALT CURRENT_DATE)
     ''')
     
     conn.commit()
     conn.close()
+    
+def register_user():
+    conn = create_conn()
+    cursor = conn.cursor()
+    
+    cursor.execute("INSERT INTO user (name, dob) VALUES (?, ?)", (name, dob))
+    
+    conn.commit()
+    conn.close()
+    
+def get_user():
+    conn = create_conn()
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT * FROM user")
+    user = cursor.fetchall()
+    return user
