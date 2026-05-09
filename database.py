@@ -17,6 +17,20 @@ def create_tables():
     
     conn.commit()
     conn.close()
+
+
+def check_user() -> bool:
+    conn = create_conn()
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT COUNT(*) FROM user")
+    is_user = cursor.fetchone()
+    if is_user[0] > 0:
+        a = True
+    else:
+        a = False
+    return a
+    
     
 def register_user():
     conn = create_conn()
