@@ -32,12 +32,12 @@ def check_user() -> bool:
     return a
     
     
-def register_user():
+def register_user(name, dob):
     conn = create_conn()
     cursor = conn.cursor()
-    
+
     cursor.execute("INSERT INTO user (name, dob) VALUES (?, ?)", (name, dob))
-    
+
     conn.commit()
     conn.close()
     
