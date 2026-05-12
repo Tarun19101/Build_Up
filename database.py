@@ -15,6 +15,14 @@ def create_tables():
             doj DATE DEFUALT CURRENT_DATE)
     ''')
     
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS stats(
+            id INT PRIMARY KEY,
+            level INT DEFUALT 1,
+            xp INT DEFUALT 0,
+            xp_req INT DEFUALT 100)
+    ''')
+    
     conn.commit()
     conn.close()
 
