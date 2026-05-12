@@ -58,13 +58,38 @@ class RegisterPage(ctk.CTkFrame):
               widget.destroy()
           Dashboard(self).pack(fill="both", expand=True)
           
- 
+class navbar(ctk.CTkFrame):
+    def __init__(self, master, **kwargs):
+          super().__init__(master, **kwargs)
+          self._nav_ui()
+
+    def _nav_ui(self):
+        self.card = ctk.CTkFrame(self, fg_color="black")
+        self.card.grid(row=0, column=0, sticky = 'nwe', columnspan=5)
+        
+        self.dash_btn = ctk.CTkButton(self.card, text="Dashboard")
+        self.dash_btn.grid(row=0, column=0, padx=10, pady=10)
+        self.pro_btn = ctk.CTkButton(self.card, text="Profile")
+        self.pro_btn.grid(row=0, column=1, padx=10, pady=10)
+        self.task_btn = ctk.CTkButton(self.card, text="Tasks")
+        self.task_btn.grid(row=0, column=2, padx=10, pady=10)
+        self.que_btn = ctk.CTkButton(self.card, text="Quests")
+        self.que_btn.grid(row=0, column=3, padx=10, pady=10)
+        self.work_btn = ctk.CTkButton(self.card, text="Work")
+        self.work_btn.grid(row=0, column=4, padx=10, pady=10)
+        self.bank_btn = ctk.CTkButton(self.card, text="Bank")
+        self.bank_btn.grid(row=0, column=5, padx=10, pady=10)
+        self.upd_btn = ctk.CTkButton(self.card, text="Updates")
+        self.upd_btn.grid(row=0, column=6, padx=10, pady=10)
+          
  
 class Dashboard(ctk.CTkFrame):
-      def __init__(self, master, **kwargs):
-          super().__init__(master, **kwargs)
-          label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
-          label.place(relx=0.5, rely=0.5, anchor="center")
+     def __init__(self, master, **kwargs):
+         super().__init__(master, **kwargs)
+         navbar(self).grid(row=0, column=0)
+         
+         label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
+         label.grid(row=1, column=0, )
 
 class App(ctk.CTk):
       def __init__(self):
