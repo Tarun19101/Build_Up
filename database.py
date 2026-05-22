@@ -12,15 +12,33 @@ def create_tables():
             id INT PRIMARY KEY,
             name TEXT,
             dob DATE,
-            doj DATE DEFUALT CURRENT_DATE)
+            doj DATE DEFAULT CURRENT_DATE)
+    ''')
+    
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS user_level(
+            id INT PRIMARY KEY,
+            level INT DEFAULT 1,
+            xp INT DEFAULT 0,
+            xp_req INT DEFAULT 100)
     ''')
     
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS stats(
             id INT PRIMARY KEY,
-            level INT DEFUALT 1,
-            xp INT DEFUALT 0,
-            xp_req INT DEFUALT 100)
+            name INT,
+            level INT DEFAULT 1,
+            xp INT DEFAULT 0,
+            xp_req INT DEFAULT 100)
+    ''')
+    
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS skills(
+            id INT PRIMARY KEY,
+            name INT,
+            level INT DEFAULT 1,
+            xp INT DEFAULT 0,
+            xp_req INT DEFAULT 100)
     ''')
     
     conn.commit()
