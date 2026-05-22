@@ -19,6 +19,7 @@ class RegisterPage(ctk.CTkFrame):
             
           self.inner_container.grid_columnconfigure(1, weight = 2)
 
+
           # Title
           self.title_label = ctk.CTkLabel(
               self.inner_container,
@@ -65,7 +66,9 @@ class navbar(ctk.CTkFrame):
 
     def _nav_ui(self):
         self.card = ctk.CTkFrame(self, fg_color="black")
-        self.card.grid(row=0, column=0, sticky = 'nwe', columnspan=5)
+        self.card.grid(row=0, column=0, sticky='ew')
+        self.grid_columnconfigure(0, weight=1)
+        
         
         self.dash_btn = ctk.CTkButton(self.card, text="Dashboard")
         self.dash_btn.grid(row=0, column=0, padx=10, pady=10)
@@ -82,15 +85,84 @@ class navbar(ctk.CTkFrame):
         self.upd_btn = ctk.CTkButton(self.card, text="Updates")
         self.upd_btn.grid(row=0, column=6, padx=10, pady=10)
           
- 
+
+         
+         
+         
+         
 class Dashboard(ctk.CTkFrame):
+     def __init__(self, master, **kwargs):
+         super().__init__(master, **kwargs)
+         
+         self.grid_columnconfigure(0, weight = 1)
+         self.grid_columnconfigure(1, weight = 1)
+         self.grid_rowconfigure(1, weight = 1)
+         self.grid_rowconfigure(2, weight = 1)
+         
+         navbar(self).grid(row=0, column=0, sticky = 'nwe', columnspan=2, padx=5)
+         
+         self.card1 = ctk.CTkFrame(self, fg_color="white")
+         self.card1.grid(row=1, column=0, padx=10, pady=10, sticky = 'nwes')
+        
+         self.card2 = ctk.CTkFrame(self, fg_color="white")
+         self.card2.grid(row=1, column=1, padx=10, pady=10, sticky = 'nwes')
+        
+         self.card3 = ctk.CTkFrame(self, fg_color="white")
+         self.card3.grid(row=2, column=0, padx=10, pady=10, sticky = 'nwes')
+        
+         self.card4 = ctk.CTkFrame(self, fg_color="white")
+         self.card4.grid(row=2, column=1, padx=10, pady=10, sticky = 'nwes')
+         
+         
+
+class Profile(ctk.CTkFrame):
      def __init__(self, master, **kwargs):
          super().__init__(master, **kwargs)
          navbar(self).grid(row=0, column=0)
          
          label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
-         label.grid(row=1, column=0, )
-
+         label.grid(row=1, column=0)
+         
+class Tasks(ctk.CTkFrame):
+     def __init__(self, master, **kwargs):
+         super().__init__(master, **kwargs)
+         navbar(self).grid(row=0, column=0)
+         
+         label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
+         label.grid(row=1, column=0)
+         
+         
+class Quests(ctk.CTkFrame):
+     def __init__(self, master, **kwargs):
+         super().__init__(master, **kwargs)
+         navbar(self).grid(row=0, column=0)
+         
+         label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
+         label.grid(row=1, column=0)
+         
+class Work(ctk.CTkFrame):
+     def __init__(self, master, **kwargs):
+         super().__init__(master, **kwargs)
+         navbar(self).grid(row=0, column=0)
+         
+         label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
+         label.grid(row=1, column=0)
+         
+class Bank(ctk.CTkFrame):
+     def __init__(self, master, **kwargs):
+         super().__init__(master, **kwargs)
+         navbar(self).grid(row=0, column=0)
+         
+         label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
+         label.grid(row=1, column=0)
+         
+class Updates(ctk.CTkFrame):
+     def __init__(self, master, **kwargs):
+         super().__init__(master, **kwargs)
+         navbar(self).grid(row=0, column=0)
+         
+         label = ctk.CTkLabel(self, text="Welcome to Dashboard!")
+         label.grid(row=1, column=0)
 class App(ctk.CTk):
       def __init__(self):
           super().__init__()
